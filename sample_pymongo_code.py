@@ -3,6 +3,7 @@ from pymongo import MongoClient
 # Replace with your MongoDB connection string
 # Make sure to replace "<password>" with the actual password for the user
 # and "<dbname>" with the name of your database
+# mongodb://localhost:27017/<dbname> incase of localhost
 connection_string = "mongodb+srv://<username>:<password>@<cluster-address>/<dbname>?retryWrites=true&w=majority"
 
 # Initialize the MongoClient
