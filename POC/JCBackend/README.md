@@ -5,7 +5,7 @@
 #### Add Listener
 
 - **URL:** 
-  - `POST /listeners/Addlistener`
+  - `POST /listeners`
 
 - **Function:**
   - `Addlistener`
@@ -37,7 +37,7 @@
 #### Create Posts
 
 - **URL:** 
-  - `POST /posts/createPosts`
+  - `POST /posts`
 
 - **Function:**
   - `createPosts`
