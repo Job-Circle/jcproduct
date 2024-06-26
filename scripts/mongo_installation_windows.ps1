@@ -1,17 +1,18 @@
-# MongoDB installation script with PATH modification
-
 # Specify installation directory
 $installDir = "C:\MongoDB"
+$zipFile = "$installDir\mongodb.zip"
 
-# Download MongoDB
-Invoke-WebRequest -Uri "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.27.zip" -OutFile "$installDir\mongodb.zip"
+# Check if the zip file already exists
+if (-Not (Test-Path -Path $zipFile)) {
+    # Download MongoDB
+    Invoke-WebRequest -Uri "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.27.zip" -OutFile $zipFile
+}
 
 # Extract MongoDB directly into the installation directory
-Expand-Archive -Path "$installDir\mongodb.zip" -DestinationPath $installDir
-
+Expand-Archive -Path $zipFile -DestinationPath $installDir -Force
 
 # Create data directory
-New-Item -ItemType Directory -Path "$installDir\data"
+New-Item -ItemType Directory -Path "$installDir\data" -Force
 
 # Create config file
 @"
@@ -20,7 +21,7 @@ systemLog:
   path: $installDir\mongod.log
 storage:
   dbPath: $installDir\data
-"@ | Out-File "$installDir\mongod.cfg"
+"@ | Out-File "$installDir\mongod.cfg" -Force
 
 # Install MongoDB as a service
 & "$installDir\bin\mongod.exe" --config "$installDir\mongod.cfg" --install
@@ -35,4 +36,4 @@ Start-Service MongoDB
 mongo --eval "db.version()"
 
 # Clean up
-Remove-Item "$installDir\mongodb.zip" -Force
+# Remove-Item "$zipFile" -Force
