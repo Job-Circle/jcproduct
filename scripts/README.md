@@ -16,6 +16,7 @@ Follow these steps to install MongoDB on your Windows machine using the `mongo_i
      .\mongo_installation_windows.ps1
      ```
    - This script will download and install MongoDB on your system.
+   - The final installation should be in C:\MongoDB
 
 ### Step 2: Add MongoDB Bin Directory to Environmental Variables
 
