@@ -41,11 +41,11 @@ def createPosts(request):
             ).send_keys(username)
             driver.find_element(By.ID, 'pass').send_keys(password)
             driver.find_element(By.ID, 'pass').send_keys(Keys.RETURN)
-            time.sleep(5)
+            time.sleep(1)
             for group in groupIDs.find():
                 group_url = 'https://www.facebook.com/groups/' + str(group['groupId'])
                 driver.get(group_url)
-                time.sleep(5)
+                time.sleep(1)
 
                 # Finds the button element to create a post
                 input_element = WebDriverWait(driver, 20).until(
