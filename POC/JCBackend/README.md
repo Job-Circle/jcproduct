@@ -129,6 +129,13 @@ Ensure that you use the correct endpoints as defined in your Django project.
   }
   ```
 
+- **Additional Instructions:**
+
+  Before using the `/posts` endpoint, ensure:
+  - Add your bot email and password in the `postsController.py` file for authentication.
+  - The `listeners` MongoDB collection contains IDs of subscribed groups (`groupId`), which are obtained from the group's URL when visiting a Facebook group.
+  - Note: You need to be a member of the group to post if it is private.
+
 - **Returns:**
   - Success: JSON response with a success message and HTTP status 201 (Created).
   - Error: JSON response with an error message and HTTP status 400 (Bad Request) if the request is invalid.
