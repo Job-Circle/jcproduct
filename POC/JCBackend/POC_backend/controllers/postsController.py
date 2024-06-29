@@ -24,8 +24,8 @@ def createPosts(request):
             'likes': 0,
             'dislikes': 0,
         }
-        username = 'kikamagdii@icloud.com'
-        password = 'k3216721!'
+        username = 'YOUR EMAIL'
+        password = 'YOUR PASS'
 
         # Setup WebDriver
         options = webdriver.ChromeOptions()
